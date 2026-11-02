@@ -1,8 +1,8 @@
-# PRAKTIKUM FRAMEWORK WEB
+# Praktikum Framework Web
 
-Repository ini merupakan dokumentasi dan tempat penyimpanan source code tugas praktikum mata kuliah Framework Web menggunakan Laravel.
+Repository ini saya gunakan untuk menyimpan hasil pengerjaan tugas mata kuliah Framework Web. Proyek yang dikerjakan menggunakan framework Laravel dan dikembangkan secara bertahap sesuai materi praktikum.
 
-## Identitas Mahasiswa
+## Identitas
 
 - **Nama:** Lameina Regan
 - **NIM:** 2410631170146
@@ -12,27 +12,31 @@ Repository ini merupakan dokumentasi dan tempat penyimpanan source code tugas pr
 
 ## Daftar Praktikum
 
-### Praktikum 11 — Pengelolaan Data
+### Praktikum 11 – Pengelolaan Produk dan Kategori
 
-Berisi source code dan dokumentasi pengelolaan data produk dan kategori, termasuk fitur tambah, tampil, ubah, dan hapus data.
+Pada praktikum ini, saya mengerjakan fitur pengelolaan data produk dan kategori. Fitur yang dibuat mencakup penambahan data, menampilkan daftar data, mengedit, serta menghapus data yang sudah tidak diperlukan.
 
-Folder dokumentasi: `docs/Praktikum-11/`
+Lokasi dokumentasi: `docs/Praktikum-11/`
 
-### Praktikum 12 — Point of Sale (POS)
+### Praktikum 12 – Point of Sale (POS)
 
-Berisi source code dan dokumentasi aplikasi kasir, meliputi transaksi penjualan, detail transaksi, riwayat transaksi, dan struk pembayaran.
+Pada praktikum ini, saya melanjutkan pengembangan aplikasi dengan membuat fitur kasir atau Point of Sale (POS). Fitur yang dikerjakan meliputi proses transaksi, penyimpanan detail pembelian, melihat riwayat transaksi, dan menampilkan struk pembayaran.
 
-Folder dokumentasi: `docs/Praktikum-12/`
+Lokasi dokumentasi: `docs/Praktikum-12/`
 
-## Teknologi yang Digunakan
+## Teknologi
+
+Beberapa teknologi yang digunakan dalam pengerjaan proyek ini:
 
 - PHP
 - Laravel
 - JavaScript
 - Tailwind CSS
-- Database sesuai konfigurasi proyek
+- Database
 
-## Struktur Repository
+## Susunan Folder
+
+Berikut gambaran susunan folder dokumentasi praktikum:
 
 ```text
 belajar-laravel/
@@ -56,16 +60,19 @@ belajar-laravel/
 └── package.json
 ```
 
-## Cara Menjalankan Aplikasi
+## Cara Menjalankan Project
 
-1. Clone repository.
-2. Jalankan `composer install`.
-3. Salin `.env.example` menjadi `.env`.
-4. Sesuaikan konfigurasi database.
-5. Jalankan `php artisan key:generate`.
-6. Jalankan migrasi database sesuai kebutuhan.
-7. Jalankan `php artisan serve`.
+Untuk menjalankan aplikasi Laravel ini, langkah yang dilakukan adalah:
 
-## Tujuan Repository
+1. Clone repository ke komputer.
+2. Buka folder project melalui Terminal.
+3. Jalankan `composer install`.
+4. Salin file `.env.example` menjadi `.env`.
+5. Atur koneksi database pada file `.env`.
+6. Jalankan `php artisan key:generate`.
+7. Jalankan migrasi database jika diperlukan.
+8. Jalankan aplikasi menggunakan `php artisan serve`.
 
-Repository ini digunakan untuk menyimpan hasil pengerjaan praktikum Framework Web sebagai dokumentasi pembelajaran dan bahan pemeriksaan tugas oleh dosen pada saat Ujian Akhir Semester (UAS).
+## Penutup
+
+Repository ini dibuat sebagai tempat pengumpulan hasil praktikum Framework Web. Melalui repository ini, source code dan dokumentasi Praktikum 11 serta Praktikum 12 dapat dilihat kembali dan digunakan sebagai bahan pemeriksaan tugas oleh dosen saat UAS.
