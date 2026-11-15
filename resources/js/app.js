@@ -1,6 +1,6 @@
 
-import Alpine from 'alpinejs';
+import '../css/app.css';
 
-window.Alpine = Alpine;
+import Chart from 'chart.js/auto';
 
-Alpine.start();
+window.Chart = Chart;

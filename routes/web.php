@@ -2,71 +2,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PosController;
-
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
-    return 'Laravel berhasil dijalankan';
+    return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
 
-Route::get('/badge-test', function () {
-    return view('components.badge-test');
-});
+Route::get('/reports/sales', [ReportController::class, 'sales'])
+    ->name('report.sales');
 
-// Login
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::post('/login', function () {
-    $credentials = request()->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
-
-    if (Auth::attempt($credentials)) {
-        request()->session()->regenerate();
-
-        return redirect()->route('dashboard');
-    }
-
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->onlyInput('email');
-});
-
-// Logout
-Route::post('/logout', function () {
-    Auth::logout();
-
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-
-    return redirect()->route('login');
-})->name('logout');
-
-// Point of Sale (POS)
-Route::middleware('auth')->group(function () {
-
-    Route::get('/pos', [PosController::class, 'index'])
-        ->name('pos.index');
-
-    Route::post('/pos', [PosController::class, 'store'])
-        ->name('pos.store');
-
-    Route::get('/pos/{transaction}/struk', [PosController::class, 'struk'])
-        ->name('pos.struk');
-
-    Route::get('/pos/history', [PosController::class, 'riwayatSaya'])
-        ->name('pos.history');
-
-});
+Route::get('/reports/sales/export', [ReportController::class, 'export'])
+    ->name('report.export');

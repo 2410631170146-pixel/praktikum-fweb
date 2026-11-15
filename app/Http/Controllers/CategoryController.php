@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view('master-data.category.index');
+        $categories = Category::latest()->get();
+
+        return view('master-data.category.index', compact('categories'));
     }
 
     public function create()
@@ -18,25 +21,33 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        return back()->with('success', 'Form kategori berhasil dikirim.');
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Category::create($validated);
+
+        return redirect()->route('categories.index')
+            ->with('success', 'Kategori berhasil ditambahkan.');
     }
 
-    public function show(string $category)
+    public function show(Category $category)
     {
         return response('Detail kategori');
     }
 
-    public function edit(string $category)
+    public function edit(Category $category)
     {
         return response('Edit kategori');
     }
 
-    public function update(Request $request, string $category)
+    public function update(Request $request, Category $category)
     {
         return back();
     }
 
-    public function destroy(string $category)
+    public function destroy(Category $category)
     {
         return back();
     }

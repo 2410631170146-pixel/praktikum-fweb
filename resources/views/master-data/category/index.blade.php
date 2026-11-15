@@ -3,6 +3,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Kategori</title>
 </head>
 <body>
@@ -13,9 +14,7 @@
     @endif
 
     <p>
-        <a href="{{ route('categories.create') }}">
-            + Tambah Kategori
-        </a>
+        <a href="{{ route('categories.create') }}">+ Tambah Kategori</a>
     </p>
 
     <table border="1" cellpadding="10">
@@ -27,11 +26,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Contoh Makanan</td>
-                <td>Kategori produk makanan</td>
-            </tr>
+            @forelse ($categories as $category)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $category->name }}</td>
+                    <td>{{ $category->description ?? '-' }}</td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="3">Belum ada kategori.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 </body>
